@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Резюме{% endblock %}
+
+{% block content %}
+<section id="about" class="my-5">
+    <h1>Про себе</h1>
+    <p>Я – Погончук Ярослав Віталійович, що вивчає розробку веб-додатків...</p>
+</section>
+<section id="education" class="my-5">
+    <h2>Освіта</h2>
+    <p>Навчальний заклад: Прикарпатський національний університет іменні В. Стефаника</p>
+</section>
+<section id="skills" class="my-5">
+    <h2>Навички</h2>
+    <ul>
+        <li>
+            <img src="{{ url_for('static', filename='images/ddd.jpg') }}" alt="Навичка" style="width: 50px;">
+            HTML/CSS
+        <li>HTML/CSS</li>
+        <li>Python/Flask</li>
+        <li>Git</li>
+    </ul>
+</section>
+<section id="projects" class="my-5">
+    <h2>Досвід роботи</h2>
+    <p>Відсутній</p>
+</section>
+{% endblock %}
