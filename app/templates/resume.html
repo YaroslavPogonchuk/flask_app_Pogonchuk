@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Резюме{% endblock %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light mt-3">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#about">Про себе</a></li>
+            <li class="nav-item"><a class="nav-link" href="#education">Освіта</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Навички</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Досвід роботи</a></li>
+        </ul>
+    </div>
+</nav>
+<section id="about" class="my-5">
+    <h1>Про себе</h1>
+    <p>Я – Погончук Ярослав Віталійович, що вивчає розробку веб-додатків...</p>
+</section>
+<section id="education" class="my-5">
+    <h2>Освіта</h2>
+    <p>Навчальний заклад: Прикарпатський національний університет іменні В. Стефаника</p>
+</section>
+<section id="skills" class="my-5">
+    <h2>Навички</h2>
+    <ul>
+        <li>
+            <img src="{{ url_for('static', filename='images/ddd.jpg') }}" alt="Навичка" style="width: 50px;">
+        </li>
+        <li>HTML/CSS</li>
+        <li>Python/Flask</li>
+        <li>Git</li>
+    </ul>
+</section>
+<section id="projects" class="my-5">
+    <h2>Досвід роботи</h2>
+    <p>Відсутній</p>
+</section>
+{% endblock %}

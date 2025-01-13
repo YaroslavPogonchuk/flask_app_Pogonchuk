@@ -1,0 +1,9 @@
+body {
+    font-family: Arial, sans-serif;
+}
+h1, h2 {
+    color: #007BFF;
+}
+nav a {
+    margin-right: 15px;
+}
