@@ -1,0 +1,18 @@
+body.light-scheme {
+    --bg-color: #ffffff;
+    --text-color: #000000;  
+}
+body.dark-scheme {
+    --bg-color: #2c2c2c;
+    --text-color: #ffffff;
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.card {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.light-button { background-color: #4CAF50; }
+.dark-button { background-color: #555; }
