@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "54646u46",
+        "content": "dhteyjetyetyj",
+        "category": "science",
+        "is_active": true,
+        "publication_date": "2024-11-07",
+        "author": "Unknown"
+    },
+    {
+        "id": 2,
+        "title": "54646u46",
+        "content": "dhteyjetyetyj",
+        "category": "science",
+        "is_active": true,
+        "publication_date": "2024-11-07",
+        "author": "Unknown"
+    },
+    {
+        "id": 3,
+        "title": "w45wh",
+        "content": "ethsrtnsrt",
+        "category": "science",
+        "is_active": true,
+        "publication_date": "2024-11-05",
+        "author": "123"
+    },
+    {
+        "id": 4,
+        "title": "t445h4",
+        "content": "rtneryey",
+        "category": "tech",
+        "is_active": true,
+        "publication_date": "2024-11-21",
+        "author": "123"
+    },
+    {
+        "id": 5,
+        "title": "6666",
+        "content": "\u0443\u0435\u0456\u043a\u043f\u0435\u043f\u0438\u0432\u0430\u043f\u0438",
+        "category": "tech",
+        "is_active": true,
+        "publication_date": "2024-12-04",
+        "author": "Unknown"
+    }
+]

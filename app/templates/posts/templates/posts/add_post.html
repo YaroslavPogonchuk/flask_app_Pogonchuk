@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} POSTS - add posts {% endblock %}
+
+{% block content %}
+
+<form action="" method="post" novalidate>{{ form.hidden_tag() }}
+    {% from 'form_macros.html' import render_field %}
+
+    {{ render_field(form.title, placeholder="Enter title") }}
+    {{ render_field(form.content) }}
+    <div class="form-group form-check">
+        {{ form.is_active(class="form-check-input") }}
+        {{ form.is_active.label(class="form-check-label") }}
+    </div>
+    {{ render_field(form.publish_date) }}
+    {{ render_field(form.category) }}
+    <div class="form-group">
+        {{ form.submit(class="btn btn-primary") }}
+    </div>
+</form>
+{% endblock %}

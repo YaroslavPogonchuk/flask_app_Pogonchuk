@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block title %}Резюме{% endblock %}
+
+{% block content %}
+{% include "resume_navigation.html" %}
+<div class="container mt-5">
+  <section id="about" class="mb-5">
+    <h2 class="text-primary">Про мене</h2>
+    <p>
+      Привіт! Я – програміст, який перетворює ідеї на реальність. Маю 5+ років досвіду 
+      в розробці програмного забезпечення з акцентом на створенні зручних, продуктивних 
+      і масштабованих рішень. Моє кредо – "Постійний розвиток".  
+    </p>
+    <p>
+      Мені цікаво створювати інструменти, які допомагають бізнесу досягати нових вершин. 
+      Я особливо захоплююся оптимізацією процесів, впровадженням автоматизації 
+      та вирішенням складних задач. Окрім програмування, я активно стежу за новими трендами 
+      в IT і ділюся своїми знаннями через блоги та майстер-класи.
+    </p>
+    <img src="{{ url_for('static', filename='images/profile.jpg') }}" class="img-fluid rounded-circle" alt="Моє фото" width="150">
+  </section>
+
+  <section id="education" class="mb-5">
+    <h2 class="text-primary">Освіта</h2>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <strong>Карпатський університет</strong> — Бакалавр комп'ютерних наук (2018-2022).  
+        Бакалаврська: розробка алгоритмів для обробки великих даних.
+      </li>
+      <li class="list-group-item">
+        <strong>Університет Гарвард</strong> — Магістр програмної інженерії (2022-2024).  
+        Магістерська робота: створення платформи для розподілених обчислень.
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills" class="mb-5">
+    <h2 class="text-primary">Навички</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item">Мови програмування: Python, JavaScript, C++</li>
+          <li class="list-group-item">Фреймворки: Flask, Django, React, FastAPI</li>
+          <li class="list-group-item">Розробка API: REST, GraphQL</li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item">Бази даних: MySQL, PostgreSQL, MongoDB</li>
+          <li class="list-group-item">Інструменти DevOps: Docker, Kubernetes, Jenkins</li>
+          <li class="list-group-item">Тестування: PyTest, Selenium, Postman</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2 class="text-primary">Досвід роботи/Проєкти</h2>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Проєкт: Інтелектуальна CRM-система</h5>
+        <p class="card-text">
+          Спроектував і реалізував CRM-систему для автоматизації продажів та прогнозування
+          клієнтських потреб. Використав Flask для серверної частини та React для 
+          інтерактивного інтерфейсу. Алгоритми машинного навчання допомогли збільшити 
+          ефективність продажів на 25%.
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title">Проєкт: Хмарна платформа для аналітики</h5>
+        <p class="card-text">
+          Розробив платформу для збору, обробки та візуалізації даних у реальному часі.
+          Технології: Django, PostgreSQL, Kubernetes. Платформа дозволила компаніям 
+          скоротити час на прийняття рішень на 40%.
+        </p>
+      </div>
+    </div>
+    <div class="card mt-3">
+      <div class="card-body">
+        <h5 class="card-title">Особистий проєкт: Освітня платформа для студентів</h5>
+        <p class="card-text">
+          Створив платформу, яка надає інструменти для організації навчання, тестування 
+          та відстеження прогресу. Основні функції: адаптивне тестування, інтеграція 
+          з Google Classroom, гейміфікація. Використані технології: FastAPI, React, MongoDB.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Сторінка профілю{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Привіт, {{ username }}!</h1>
+    <a href="{{ url_for('users.logout') }}" class="btn btn-secondary mt-3">Вийти</a>
+
+    <h2>Вибір кольорової схеми</h2>
+    <div class="btn-group mb-4">
+        <a href="{{ url_for('users.set_color', color='light') }}" class="btn btn-light">Світла</a>
+        <a href="{{ url_for('users.set_color', color='dark') }}" class="btn btn-dark">Темна</a>
+    </div>
+
+    <h2>Додати кукі</h2>
+    <form action="" method="post" class="w-50 mb-4">
+        <div class="mb-3">
+            <label for="key-cookie" class="form-label">Ключ</label>
+            <input type="text" class="form-control" id="key-cookie" name="key-cookie" required>
+        </div>
+        <div class="mb-3">
+            <label for="value-cookie" class="form-label">Значення</label>
+            <input type="text" class="form-control" id="value-cookie" name="value-cookie" required>
+        </div>
+        <div class="mb-3">
+            <label for="expires" class="form-label">Термін дії (сек)</label>
+            <input type="number" class="form-control" id="expires" name="expires" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Додати кукі</button>
+    </form>
+
+    <h2>Список усіх кукі</h2>
+    <table class="table table-bordered w-50">
+        <thead>
+            <tr>
+                <th>Ключ</th>
+                <th>Значення</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, value in cookies.items() %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ value }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2" class="text-center">Немає кукі</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

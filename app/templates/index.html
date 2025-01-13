@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+   
+    <div class="jumbotron mt-4">
+        <h1 class="display-4">Ласкаво просимо до нашого Flask-додатку!</h1>
+        <p class="lead">Цей додаток демонструє основи роботи з Flask, включаючи маршрутизацію, шаблонізацію та автентифікацію.</p>
+        <hr class="my-4">
+        <p>Використовуйте навігаційне меню для переходу до різних частин додатку.</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('users.login') }}" role="button">Увійти</a>
+    </div>
+
+    <section>
+        <h2>Про проект</h2>
+        <p>Цей проект розроблено для навчання та експериментування з Flask. Ми використовуємо сучасний дизайн і надаємо простий інтерфейс для взаємодії.</p>
+    </section>
+
+    <section>
+        <h2>Контакти</h2>
+        <p>Для отримання додаткової інформації, будь ласка, зв'яжіться з нами через електронну пошту: <a href="mailto:example@example.com">example@example.com</a>.</p>
+    </section>
+{% endblock %}

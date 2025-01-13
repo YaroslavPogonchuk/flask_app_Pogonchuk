@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Сторінка входу{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Увійти в систему</h2>
+    <form action="" method="post" class="w-50 mx-auto">
+        <div class="mb-3">
+            <label for="login" class="form-label">Ім'я користувача</label>
+            <input type="text" class="form-control" id="login" name="login" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Пароль</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Увійти</button>
+    </form>
+</div>
+{% endblock %}

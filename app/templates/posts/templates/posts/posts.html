@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}POSTS{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/posts.css') }}">
+{% endblock %}
+{% block content %}
+<!-- Кнопка для додавання посту -->
+    <form action="{{ url_for('.add_post') }}" class="mb-4">
+        <button type="submit" class="btn btn-primary myclass">Add post</button>
+    </form>
+<h1 class="text-center mt-4">Articles</h1>
+
+<div class="container mt-4">
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img src="{{ url_for('.static', filename='image/default.png') }}" alt="Post image" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.content | truncate(7) }}</p> <!-- Скорочений контент -->
+                        <p class="card-text"><small class="text-muted">Author: {{ post.author }}</small></p>
+                        <p class="card-text"><small class="text-muted">Category: {{ post.category }}</small></p>
+                        <a href="{{ url_for('posts.detail_post', id=post.get('id')) }}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

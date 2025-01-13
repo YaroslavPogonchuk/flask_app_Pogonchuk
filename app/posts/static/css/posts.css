@@ -1,0 +1,91 @@
+/* Загальні стилі */
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #343a40;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Кнопка додавання посту */
+.myclass {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.myclass:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Контейнер статей */
+.container {
+    margin-top: 2rem;
+}
+
+/* Карточка */
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Заголовок карточки */
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #212529;
+    margin-bottom: 10px;
+}
+
+/* Текст у карточці */
+.card-text {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+/* Кнопка у карточці */
+.card .btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.card .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Відступи між карточками */
+.col-md-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
