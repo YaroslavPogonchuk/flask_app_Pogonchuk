@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% from 'form_macros.html' import render_field %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="display-4 mb-4">Register</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ render_field(form.username,"form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ render_field(form.email,"form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ render_field(form.password,"form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ render_field(form.confirm_password,"form-control") }}
+        </div>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+</div>
+{% endblock %}

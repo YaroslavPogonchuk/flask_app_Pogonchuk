@@ -3,7 +3,36 @@ from flask import flash
 from datetime import timedelta
 from . import user_bp
 from .models import User
+from .forms import LoginForm, RegistrationForm
+from app import db, bcrypt
+from flask_login import login_user, logout_user, login_required, current_user
 
+@user_bp.route('/account', methods=['GET', 'POST'])
+@login_required
+def account():
+    return render_template('account.html',user=current_user)
+
+@user_bp.route('/all_accounts')
+def all_accounts():
+    stmt= db.select(User).order_by(User.id)
+    accounts = db.session.scalars(stmt).all()
+    return render_template("all_accounts.html", accounts=accounts)
+
+@user_bp.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(
+            username = form.username.data, 
+            email = form.email.data, 
+            password = hashed_password
+            )
+        db.session.add(user)
+        db.session.commit()
+        flash('Registration successful!', 'success')
+        return redirect(url_for('.login'))
+    return render_template('register.html', form=form)
 
 @user_bp.route("/hi/<string:name>")
 def hi(name):
@@ -18,18 +47,22 @@ def admin():
 
 @user_bp.route('/login', methods=["GET","POST"])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for(".profile"))
+    form=LoginForm()
     if request.method=="POST":
-        correct_username = "user"
-        correct_password = "password"
-        if correct_password == request.form.get("password") and correct_username == request.form.get("username"):
-            session["user"] = correct_username
-            return redirect(url_for('.profile'))
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and bcrypt.check_password_hash(user.password,form.password.data):
+            login_user(user)
+            return redirect(url_for('.account'))
         flash("Invalid: Не вірний логін або пароль.")
-    return render_template("login.html")
+    return render_template("login.html",form=form)
+
 @user_bp.route('/profile', methods=["GET","POST"])
+@login_required
 def profile():
-    if "user" in session:
-        user_name = session["user"]
+    if current_user:
+        user_name = current_user
         flash("Success: Вітаю в профілі.","success")
         color_scheme = request.cookies.get("color_schem", "dark")
         if request.method == "POST" and "value" in request.form:
@@ -71,7 +104,8 @@ def set_color_scheme(scheme):
 @user_bp.route("/logout")
 def logout():
     session.pop("user",None)
-    return redirect(url_for('.profile'))
+    logout_user()
+    return redirect(url_for('.login'))
 
 @user_bp.route('/set_cookie')
 def set_cookie():

@@ -1,5 +1,5 @@
 {%extends 'base.html'%}
-
+{% from 'form_macros.html' import render_field %}
 {% block title%}Login{% endblock %}
 {% block content%}
 
@@ -9,14 +9,12 @@
             <h2 class="text-center mb-4">Login</h2>
             <form method="POST" action="">
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+                    {{ render_field(form.email, "form-control") }}
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                    {{ render_field(form.password, "form-control") }}
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                {{ form.submit(class="btn btn-primary") }}
             </form>
         </div>
     </div>
