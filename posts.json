@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "title": "Test",
+        "content": "test",
+        "date": "08.01.2025",
+        "author": "user"
+    },
+    {
+        "id": 2,
+        "title": "My First Post",
+        "content": "This is the content of my first post.",
+        "date": "08.01.2025",
+        "author": "John Doe"
+    },
+    {
+        "id": 3,
+        "title": "Another Day",
+        "content": "Today I learned about Flask macros.",
+        "date": "08.01.2025",
+        "author": "Jane Smith"
+    },
+    {
+        "id": 4,
+        "title": "Flask and Jinja2",
+        "content": "Jinja2 is powerful for templating.",
+        "date": "08.01.2025",
+        "author": "Mike Lee"
+    },
+    {
+        "id": 5,
+        "title": "Some test",
+        "content": "Some test",
+        "date": "03.01.2025",
+        "author": "user"
+    }
+]
