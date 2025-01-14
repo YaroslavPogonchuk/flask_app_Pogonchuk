@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% from 'form_macros.html' import render_field %}
+
+{% block title %}
+    {% if post %}
+        Edit Post
+    {% else %}
+        Add Post
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">
+        {% if post %}
+            Edit Post #{{ post.id }}
+        {% else %}
+            Add New Post
+        {% endif %}
+    </h2>
+    
+    <form action="{{ url_for('.add_post', id=post.id if post else None) }}" method="post">
+        {{ form.hidden_tag() }}
+        
+        <div class="mb-3">
+            {{ render_field(form.title, "form-control") }}
+        </div>
+        
+        <div class="mb-3">
+            {{ render_field(form.content, "form-control") }}
+        </div>
+        
+        <div class="mb-3 form-check">
+            {{ render_field(form.is_active, "") }}
+        </div>
+
+        <div class="mb-3">
+            {{ render_field(form.publish_date, "form-control") }}
+        </div>
+
+        <div class="mb-3">
+            {{ render_field(form.category, "form-control") }}
+        </div>
+
+        <div class="mb-3">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+
+    <div class="text-center mt-4">
+        <a href="{{ url_for('.get_posts') }}" class="btn btn-secondary">Назад до списку постів</a>
+    </div>
+</div>
+{% endblock %}

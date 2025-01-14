@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Hi, {{name}}{% endblock %}
+
+{% block content %}
+
+    <nav class="nav-hi">
+        <ul>
+            <li>
+                <a href="{{url_for('users.hi', name='User', age=44)}}">Test page</a>
+            </li>
+            <li>
+                <a href="{{url_for('users.admin')}}">Admin</a>
+            </li>
+        </ul>
+    </nav>
+    <h1>Hello</h1>
+    <h1>Welcome {{name | title}}</h1>
+
+    {% if age%}
+        <h1>age: {{age}}</h1>
+    {% else %}
+        <h2>age: {{age}}</h2>
+    {%endif%}
+
+{% endblock %}
