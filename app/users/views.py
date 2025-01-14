@@ -2,6 +2,7 @@ from flask import request, redirect, url_for,render_template, session,make_respo
 from flask import flash
 from datetime import timedelta
 from . import user_bp
+from .models import User
 
 
 @user_bp.route("/hi/<string:name>")

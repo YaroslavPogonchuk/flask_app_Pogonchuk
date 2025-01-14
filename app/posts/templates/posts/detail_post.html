@@ -8,12 +8,26 @@
             <h1 class="display-4 mb-4">Post #{{ post.id }} - {{ post.title }}</h1>
             
             <div class="post-meta mb-4">
-                <p><strong>Author:</strong> {{ post.author }}</p>
+                <p><strong>Author:</strong> {{ post.author.username }}</p>
                 <p><strong>Published on:</strong> {{ post.posted }}</p>
             </div>
 
             <div class="post-content mb-4">
                 <p>{{ post.content }}</p>
+            </div>
+
+            <!-- Теги -->
+            <div class="post-tags mb-4">
+                {% if post.tags %}
+                    <p><strong>Tags:</strong></p>
+                    <ul>
+                        {% for tag in post.tags %}
+                            <li>{{ tag.name }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No tags available for this post.</p>
+                {% endif %}
             </div>
 
             <div class="action-buttons">

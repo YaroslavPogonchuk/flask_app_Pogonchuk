@@ -6,5 +6,5 @@ def resume():
     return render_template('resume.html')
 
 @current_app.errorhandler(404)
-def pege_not_found():
+def pege_not_found(e):
     return render_template("404.html"), 404
