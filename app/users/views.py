@@ -1,11 +1,39 @@
-from flask import request, redirect, url_for,render_template, session,make_response
+from flask import request, redirect, url_for,render_template, session, make_response, current_app
 from flask import flash
 from datetime import timedelta
 from . import user_bp
 from .models import User
-from .forms import LoginForm, RegistrationForm
+from .forms import LoginForm, RegistrationForm, UpdateForm
 from app import db, bcrypt
 from flask_login import login_user, logout_user, login_required, current_user
+from werkzeug.utils import secure_filename
+import os
+
+@user_bp.route('/edit_account', methods=['GET', 'POST'])
+@login_required
+def edit_account():
+    form = UpdateForm(
+        email = current_user.email,
+        username = current_user.username
+    )
+    if form.validate_on_submit():
+        user = current_user
+        user.username = form.username.data
+        user.email = form.email.data
+        user.about_me = form.about_me.data
+        if form.img_file.data:
+            picture_file = save_picture(form.img_file.data)
+            user.img_file = picture_file
+        db.session.commit()
+        return redirect(url_for(".account"))
+    return render_template('edit_account.html', form=form, user=current_user)
+
+def save_picture(form_picture):
+    filename = secure_filename(form_picture.filename)
+    picture_path = os.path.join(current_app.config['UPLOAD_FOLDER'], filename)
+    os.makedirs(os.path.dirname(picture_path), exist_ok=True)
+    form_picture.save(picture_path)
+    return filename
 
 @user_bp.route('/account', methods=['GET', 'POST'])
 @login_required
